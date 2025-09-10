@@ -102,7 +102,7 @@ button:hover,
   justify-content: space-between;
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-  font-size: 100px;
+  font-size: 16px;
 }
 
 .card:hover {
@@ -172,3 +172,4 @@ footer {
     width: 100%;
   }
 }
+
