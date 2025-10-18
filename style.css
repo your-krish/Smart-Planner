@@ -73,6 +73,8 @@ body {
   border-color: #ffdd00; 
   transform: scale(1.05);
   box-shadow: 0 0 15px rgb(255, 238, 0);
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -464,4 +466,5 @@ footer {
     justify-content: center;
   }
 }
+
 
