@@ -1,58 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Planner</title>
-    <link rel="stylesheet" text="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Planner - Login</title>
+  <link rel="stylesheet" href="login-style.css">
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <h2>Smart Planner</h2>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="challenges.html">Challenges</a>
-                <a href="badges.html">Badges</a>
-                <a href="leaderboard.html">Leaderboard</a>
-            </div>
-        </nav>
-    </header>
+  <div class="login-container">
+    <div class="eco-icon">🌱</div>
+    <h1>Smart Planner</h1>
+    <p>Plan Smart. Go Green.</p>
+    
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    
+    <div class="forgot-password">
+      <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+    </div>
+    
+    <div id="welcomeMsg" class="welcome-message" style="display: none;"></div>
+  </div>
 
-    <section class="hero" align="center">
-        <h1 class="hero-title">Plan Smart. Go Green.</h1>
-        <p class="hero-subtitle">Take challenges, earn badges, and rise on the leaderboard while making the planet
-            better.</p>
-        <a href="challenges.html" class="btn" style="display: inline-block; text-align: center;">Start Your Journey</a>
-
-    </section>
-
-    <section class="features container">
-        <h2>What You Can Do ?</h2>
-        <div class="badge-grid">
-            <div class="card">
-                <h3>⚡ Challenges</h3>
-                <p>Join daily eco-tasks like saving water, recycling, and tree planting.</p>
-                <a href="challenges.html" class="btn">Explore</a>
-            </div>
-            <div class="card">
-                <h3>🏅 Badges</h3>
-                <p>Unlock achievements as you complete tasks and grow your eco-score.</p>
-                <a href="badges.html" class="btn">View</a>
-            </div>
-            <div class="card">
-                <h3>📊 Leaderboard</h3>
-                <p>Compete with friends and see who’s making the biggest impact.</p>
-                <a href="leaderboard.html" class="btn">Check</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>EduResQ - SIH Hackathon</p>
-    </footer>
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="login.js"></script>
 </body>
-
 </html>
