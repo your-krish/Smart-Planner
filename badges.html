@@ -11,74 +11,46 @@
 <body>
   <header>
     <nav class="navbar">
-      <h2>Smart Planner</h2>
+      <h2>🌱 Smart Planner</h2>
       <div>
-        <a href="index.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="challenges.html">Challenges</a>
         <a href="badges.html">Badges</a>
         <a href="leaderboard.html">Leaderboard</a>
+      </div>
+      <div class="user-info">
+        <span class="user-points" id="userPoints">0 pts</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
       </div>
     </nav>
   </header>
 
   <div class="container">
-    <h2>Earnable Badges</h2>
-    <div class="badge-grid">
-      <div class="card">
-        <h3>💧 Water Saver</h3>
-        <p>Complete the “Save Water” challenge.</p>
+    <h2>🏆 Your Badges</h2>
+    <div id="earnedBadgesSection">
+      <h3 style="margin-bottom: 20px;">Earned Badges</h3>
+      <div class="badge-grid" id="earnedBadges">
+        <!-- Earned badges will be loaded here -->
       </div>
+    </div>
 
-      <div class="card">
-        <h3>🔌 Power Saver</h3>
-        <p>Complete the “Power Saver” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌳 Green Thumb</h3>
-        <p>Complete the “Plant a Tree” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>🚮 Waste Warrior</h3>
-        <p>Complete the “Waste Segregation” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>🛒 Eco Shopper</h3>
-        <p>Complete the “Eco Shopping” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>🚶‍♂️ Commuter Hero</h3>
-        <p>Complete the “Walk or Cycle” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>🍃 Plant Keeper</h3>
-        <p>Complete the “Indoor Plants” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>💻 Digital Cleanup</h3>
-        <p>Complete the “Digital Cleanup” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>♻️ Recycling Champ</h3>
-        <p>Complete the “Recycling” challenge.</p>
-      </div>
-
-      <div class="card">
-        <h3>💡 Switch Off</h3>
-        <p>Complete the “Switch Off” challenge.</p>
+    <div style="margin-top: 50px;">
+      <h3 style="margin-bottom: 20px;">Available Badges</h3>
+      <div class="badge-grid" id="availableBadges">
+        <!-- Available badges will be loaded here -->
       </div>
     </div>
   </div>
 
   <footer>
-        <p>EduResQ - SIH Hackathon</p>
+    <p>EduResQ - SIH Hackathon | Making Education Eco-Friendly</p>
   </footer>
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="common.js"></script>
+  <script src="badges.js"></script>
 </body>
 
 </html>
