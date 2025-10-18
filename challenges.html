@@ -11,97 +11,47 @@
 <body>
   <header>
     <nav class="navbar">
-      <h2>Smart Planner</h2>
+      <h2>🌱 Smart Planner</h2>
       <div>
-        <a href="index.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="challenges.html">Challenges</a>
         <a href="badges.html">Badges</a>
         <a href="leaderboard.html">Leaderboard</a>
+      </div>
+      <div class="user-info">
+        <span class="user-points" id="userPoints">0 pts</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
       </div>
     </nav>
   </header>
 
   <div class="container">
-    <h2>Eco Challenges</h2>
-    <div class="badge-grid">
-      <div class="card">
-        <h3>🚰 Save Water</h3>
-        <p>Turn off taps while brushing and save 10L/day.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🔌 Power Saver</h3>
-        <p>Unplug devices not in use for a week.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🌳 Plant a Tree</h3>
-        <p>Plant one tree in your neighborhood.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🚮 Waste Segregation</h3>
-        <p>Separate your household waste for 5 days.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🛒 Eco Shopping</h3>
-        <p>Buy items with minimal plastic for one week.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🚶‍♂️ Walk or Cycle</h3>
-        <p>Use no motor vehicle for short distances today.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🍃 Indoor Plants</h3>
-        <p>Place 2 indoor plants in your room or classroom.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>💡 Switch Off</h3>
-        <p>Turn off all lights and fans for one whole night.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-
-      <div class="card">
-        <h3>♻️ Recycling Champ</h3>
-        <p>Recycle 5 items and log it in Smart Planner.</p>
-        <button class="btn">Complete</button>
-      </div>
-
-      <div class="card">
-        <h3>🌿 Community Helper</h3>
-        <p>Participate in a local environmental activity.</p>
-        <button class="btn">Complete</button>
-      </div>
+    <h2>🌿 Eco Challenges</h2>
+    <div class="badge-grid" id="challengesGrid">
+      <!-- Challenges will be loaded here -->
     </div>
   </div>
 
-  <script>
-    const buttons = document.querySelectorAll(".card .btn");
-
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        this.classList.add("completed");
-        this.innerText = "Completed";
-        this.disabled = true;      
-      });
-    });
-  </script>
+  <!-- Badge Award Modal -->
+  <div id="badgeModal" class="modal">
+    <div class="modal-content">
+      <h2>🎉 Congratulations!</h2>
+      <div class="badge-icon" id="badgeIcon"></div>
+      <p id="badgeMessage"></p>
+      <p id="pointsMessage"></p>
+      <button class="close-modal" id="closeModalBtn">Awesome!</button>
+    </div>
+  </div>
 
   <footer>
-        <p>EduResQ - SIH Hackathon</p>
+    <p>EduResQ - SIH Hackathon | Making Education Eco-Friendly</p>
   </footer>
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="common.js"></script>
+  <script src="challenges.js"></script>
 </body>
 
 </html>
