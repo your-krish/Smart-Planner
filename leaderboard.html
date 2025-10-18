@@ -11,33 +11,39 @@
 <body>
   <header>
     <nav class="navbar">
-      <h2>Smart Planner</h2>
+      <h2>🌱 Smart Planner</h2>
       <div>
-        <a href="index.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="challenges.html">Challenges</a>
         <a href="badges.html">Badges</a>
         <a href="leaderboard.html">Leaderboard</a>
+      </div>
+      <div class="user-info">
+        <span class="user-points" id="userPoints">0 pts</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
       </div>
     </nav>
   </header>
 
   <div class="container">
-    <h2>Leaderboard</h2>
+    <h2>🏆 Global Leaderboard</h2>
+    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Compete with users worldwide! 🌍</p>
     <div class="leaderboard">
-      <ul>
-        <li><span>🥇Sumeet</span> <span>120 pts</span></li>
-        <li><span>🥈Zaid</span> <span>100 pts</span></li>
-        <li><span>🥉Krish</span> <span>90 pts</span></li>
-        <li><span>Shruti</span> <span>70 pts</span></li>
-        <li><span>Anjali</span> <span>65 pts</span></li>
-        <li><span>Namrata</span> <span>50 pts</span></li>
+      <ul id="leaderboardList">
+        <!-- Leaderboard will be loaded here -->
       </ul>
     </div>
   </div>
 
   <footer>
-        <p>EduResQ - SIH Hackathon</p>
+    <p>EduResQ - SIH Hackathon | Making Education Eco-Friendly</p>
   </footer>
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="common.js"></script>
+  <script src="leaderboard.js"></script>
 </body>
 
 </html>
