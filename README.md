@@ -2,6 +2,8 @@
 
 An engaging educational web application that gamifies environmental awareness through challenges, badges, and a global leaderboard system.
 
+# Link: https://your-krish.github.io/Smart-Planner/
+
 ## ✨ Features
 
 - 🎯 **Eco Challenges** - Complete daily environmental tasks
