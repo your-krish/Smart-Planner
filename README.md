@@ -11,10 +11,6 @@ An engaging educational web application that gamifies environmental awareness th
 - 📱 **Responsive Design** - Works on all devices
 - 🎨 **Modern UI** - Smooth animations and eco-friendly color scheme
 
-## 🚀 Live Demo
-
-[View Live Demo](https://yourusername.github.io/smart-planner/)
-
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
