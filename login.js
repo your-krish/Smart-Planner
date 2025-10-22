@@ -34,8 +34,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
           {
             username: username,
             points: 0,
-            badges: [],          // Change to an empty array
-            completed_challenges: []      // Change to an empty array
+            badges: [],          // Change to an empty array as it was not working
+            completed_challenges: []      // Same issue
           }
         ])
         .select()
@@ -68,3 +68,4 @@ document.getElementById('forgotPasswordLink').addEventListener('click', function
   e.preventDefault();
   alert('You can type anything in the password field to login.');
 });
+
