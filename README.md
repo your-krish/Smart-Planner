@@ -87,7 +87,7 @@ MIT License - feel free to use this project for learning!
 
 ## 👥 Team
 
-- [EduResQ - (Vibe coding done by Krish](https://github.com/your-krish)
+- [EduResQ - (Vibe coding done by Krish)](https://github.com/your-krish)
 
 ## 🌟 Acknowledgments
 
