@@ -1,6 +1,5 @@
-// challenges.js (Supabase Version)
+// challenges.js (Stored data in supabase)
 
-// Challenge data (remains the same)
 const challenges = [
   { id: 1, title: '💧 Save Water', desc: 'Turn off taps while brushing and save 10L/day.', badge: '💧 Water Saver', points: 10 },
   { id: 2, title: '🔌 Power Saver', desc: 'Unplug devices not in use for a week.', badge: '🔌 Power Saver', points: 15 },
@@ -111,7 +110,6 @@ async function completeChallenge(challengeId) {
   }
 }
 
-// --- The rest of the functions are the same ---
 
 // Show badge modal
 function showBadgeModal(challenge) {
@@ -159,4 +157,5 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initChallengesPage);
 } else {
   initChallengesPage();
+
 }
