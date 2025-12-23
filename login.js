@@ -1,3 +1,5 @@
+const supabase = window.supabaseClient;
+
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
@@ -17,7 +19,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     welcomeMsg.style.display = 'block';
     welcomeMsg.style.color = '#0031e2ff';
 
-    // Check if user exists
     const { data: existingUser, error: fetchError } = await supabase
       .from('users')
       .select('*')
@@ -27,19 +28,16 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     if (fetchError && fetchError.code !== 'PGRST116') throw fetchError;
 
     if (!existingUser) {
-      // Create new user if not found
-      const { data: newUser, error: insertError } = await supabase
+      const { error: insertError } = await supabase
         .from('users')
         .insert([
           {
             username: username,
             points: 0,
-            badges: [],          // Change to an empty array as it was not working
-            completed_challenges: []      // Same issue
+            badges: [],
+            completed_challenges: []
           }
-        ])
-        .select()
-        .single();
+        ]);
 
       if (insertError) throw insertError;
 
@@ -48,10 +46,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
       welcomeMsg.textContent = `Welcome back, ${username}! Redirecting...`;
     }
 
-    // Save current user locally
     localStorage.setItem('currentUser', username);
 
-    // Redirect after delay
     setTimeout(() => {
       window.location.href = 'home.html';
     }, 1500);
@@ -63,9 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   }
 });
 
-// Forgot Password link
 document.getElementById('forgotPasswordLink').addEventListener('click', function (e) {
   e.preventDefault();
   alert('You can type anything in the password field to login.');
 });
-
