@@ -1,5 +1,3 @@
-var supabase = window.supabaseClient;
-
 const challenges = [
   { id: 1, title: '💧 Save Water', desc: 'Turn off taps while brushing and save 10L/day.', badge: '💧 Water Saver', points: 10 },
   { id: 2, title: '🔌 Power Saver', desc: 'Unplug devices not in use for a week.', badge: '🔌 Power Saver', points: 15 },
@@ -95,3 +93,4 @@ async function completeChallenge(id) {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', loadChallenges)
   : loadChallenges();
+
