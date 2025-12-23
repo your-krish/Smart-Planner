@@ -1,5 +1,3 @@
-var supabase = window.supabaseClient;
-
 const allBadges = [
   { id: 1, name: '💧 Water Saver', desc: 'Complete the "Save Water" challenge.' },
   { id: 2, name: '🔌 Power Saver', desc: 'Complete the "Power Saver" challenge.' },
@@ -44,3 +42,4 @@ async function loadBadges() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', loadBadges)
   : loadBadges();
+
