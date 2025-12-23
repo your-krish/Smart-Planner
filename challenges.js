@@ -13,6 +13,7 @@ const challenges = [
   { id: 10, title: '🌿 Community Helper', desc: 'Participate in a local environmental activity.', badge: '🌿 Community Helper', points: 20 }
 ];
 
+// Load challenges
 async function loadChallenges() {
   const currentUser = localStorage.getItem('currentUser');
   if (!currentUser) return;
@@ -40,41 +41,57 @@ async function loadChallenges() {
         <h3>${ch.title}</h3>
         <p>${ch.desc}</p>
         <p class="points">+${ch.points} points</p>
-        <button class="btn ${done ? 'completed' : ''}" ${done ? 'disabled' : ''} onclick="completeChallenge(${ch.id})">
+        <button class="btn ${done ? 'completed' : ''}"
+                ${done ? 'disabled' : ''}
+                onclick="completeChallenge(${ch.id})">
           ${done ? '✓ Completed' : 'Complete'}
-        </button>`;
+        </button>
+      `;
       grid.appendChild(card);
     });
-  } catch (e) {
-    console.error(e);
-    grid.innerHTML = '<h3>Error loading challenges</h3>';
+  } catch (err) {
+    console.error('Error loading challenges:', err);
+    grid.innerHTML = '<h3>Could not load challenges</h3>';
   }
 }
 
+// Complete challenge
 async function completeChallenge(id) {
   const user = localStorage.getItem('currentUser');
   if (!user) return;
 
-  const ch = challenges.find(c => c.id === id);
-  if (!ch) return;
+  const challenge = challenges.find(c => c.id === id);
+  if (!challenge) return;
 
-  const { data } = await supabase
-    .from('users')
-    .select('points, badges, completed_challenges')
-    .eq('username', user)
-    .single();
+  try {
+    const { data } = await supabase
+      .from('users')
+      .select('points, badges, completed_challenges')
+      .eq('username', user)
+      .single();
 
-  const updated = {
-    points: data.points + ch.points,
-    completed_challenges: [...data.completed_challenges, id],
-    badges: data.badges.includes(ch.badge) ? data.badges : [...data.badges, ch.badge]
-  };
+    const updatedData = {
+      points: data.points + challenge.points,
+      completed_challenges: [...data.completed_challenges, id],
+      badges: data.badges.includes(challenge.badge)
+        ? data.badges
+        : [...data.badges, challenge.badge]
+    };
 
-  await supabase.from('users').update(updated).eq('username', user);
-  loadChallenges();
-  updateUserPoints();
+    await supabase
+      .from('users')
+      .update(updatedData)
+      .eq('username', user);
+
+    loadChallenges();
+    updateUserPoints();
+  } catch (err) {
+    console.error('Error completing challenge:', err);
+    alert('Could not complete challenge');
+  }
 }
 
+// Init
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', loadChallenges)
   : loadChallenges();
