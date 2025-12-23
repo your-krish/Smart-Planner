@@ -1,5 +1,3 @@
-var supabase = window.supabaseClient;
-
 // Load and display leaderboard from Supabase
 async function loadLeaderboard() {
   const currentUser = localStorage.getItem('currentUser');
@@ -57,3 +55,4 @@ function initLeaderboardPage() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', initLeaderboardPage)
   : initLeaderboardPage();
+
