@@ -1,3 +1,5 @@
+const supabase = window.supabaseClient;
+
 // All available badges
 const allBadges = [
   { id: 1, name: '💧 Water Saver', desc: 'Complete the "Save Water" challenge.' },
@@ -57,7 +59,8 @@ async function loadBadges() {
         earnedBadgesGrid.appendChild(card);
       });
     } else {
-      earnedBadgesGrid.innerHTML = '<p style="color: rgba(255,255,255,0.7);">Complete challenges to earn badges!</p>';
+      earnedBadgesGrid.innerHTML =
+        '<p style="color: rgba(255,255,255,0.7);">Complete challenges to earn badges!</p>';
     }
     
     // Display locked badges
