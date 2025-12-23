@@ -1,4 +1,3 @@
-var supabase = window.supabaseClient;
 const useSupabase = !!window.supabaseClient;
 
 // Check if user is logged in
@@ -59,3 +58,4 @@ function initializePage() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', initializePage)
   : initializePage();
+
