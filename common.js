@@ -1,11 +1,11 @@
-const supabase = window.supabaseClient;
+var supabase = window.supabaseClient;
 const useSupabase = !!window.supabaseClient;
 
 // Check if user is logged in
 function checkAuth() {
   const currentUser = localStorage.getItem('currentUser');
   if (!currentUser) {
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
     return false;
   }
   return true;
@@ -29,21 +29,14 @@ async function updateUserPoints() {
       if (error) throw error;
       points = data.points || 0;
     } catch (error) {
-      console.warn('Supabase error, using localStorage:', error);
+      console.warn('Supabase error, fallback to localStorage');
       const users = JSON.parse(localStorage.getItem('smartPlannerUsers') || '{}');
-      const userData = users[currentUser] || { points: 0 };
-      points = userData.points;
+      points = (users[currentUser] || { points: 0 }).points;
     }
-  } else {
-    const users = JSON.parse(localStorage.getItem('smartPlannerUsers') || '{}');
-    const userData = users[currentUser] || { points: 0 };
-    points = userData.points;
   }
 
-  const pointsElement = document.getElementById('userPoints');
-  if (pointsElement) {
-    pointsElement.textContent = points + ' pts';
-  }
+  const el = document.getElementById('userPoints');
+  if (el) el.textContent = points + ' pts';
 }
 
 // Logout
@@ -54,23 +47,15 @@ function logout() {
   }
 }
 
-// Initialize page
+// Init page
 function initializePage() {
-  console.log('Initializing page...');
-  console.log('Supabase mode:', useSupabase ? 'Enabled' : 'Disabled');
-
   if (checkAuth()) {
     updateUserPoints();
-
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', logout);
-    }
+    const btn = document.getElementById('logoutBtn');
+    if (btn) btn.addEventListener('click', logout);
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializePage);
-} else {
-  initializePage();
-}
+document.readyState === 'loading'
+  ? document.addEventListener('DOMContentLoaded', initializePage)
+  : initializePage();
