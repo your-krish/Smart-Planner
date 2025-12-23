@@ -1,4 +1,4 @@
-const supabase = window.supabaseClient;
+var supabase = window.supabaseClient;
 
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         .from('users')
         .insert([
           {
-            username: username,
+            username,
             points: 0,
             badges: [],
             completed_challenges: []
