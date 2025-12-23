@@ -1,5 +1,3 @@
-var supabase = window.supabaseClient;
-
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
@@ -63,3 +61,4 @@ document.getElementById('forgotPasswordLink').addEventListener('click', function
   e.preventDefault();
   alert('You can type anything in the password field to login.');
 });
+
